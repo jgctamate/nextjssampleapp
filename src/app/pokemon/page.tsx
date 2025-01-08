@@ -5,19 +5,20 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid2';
-import { Suspense } from 'react';
+import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 import { usePokemon } from '../../hooks/usePokemon';
+import { Pokemon } from '../../hooks/usePokemon';
 
 export default function Page() {
   return (
     <div>
       <main>
         <Link href="/" underline="hover">Return to Home</Link>
+        <h1>Pokemon</h1>
         <PokemonList />
       </main>
     </div>
@@ -42,8 +43,8 @@ function PokemonList() {
 
   return (
     <Grid container spacing={3} className={styles.pokemonGrid}>
-      {pokemons.map((pokemon: any) => (
-        <Grid item={true} key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
+      {pokemons.map((pokemon: Pokemon) => (
+        <Grid item key={pokemon.id} xs={12} sm={6} md={4} lg={3}>
           <Card className={styles.pokemonCard}>
             <CardMedia
               component="img"
